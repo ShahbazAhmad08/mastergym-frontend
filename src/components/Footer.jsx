@@ -106,7 +106,7 @@ function Footer() {
         <div className="footer-bottom">
           <p>&copy; 2026 Master Gym - The Fitness Hub. All Rights Reserved.</p>
           <p className="text-yellow-500 ">
-            developed and maintained by SAMEER ABBASI
+            Developed And Maintained by SAMEER ABBASI
           </p>
           {/* <Link to="/admin" className="admin-link">
             Admin Panel

@@ -11,6 +11,7 @@ import Membership from "./pages/Membership";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import "./App.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -26,6 +27,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <ScrollToTop />
         <Routes>
           <Route path="/admin" element={<Admin />} />
           <Route

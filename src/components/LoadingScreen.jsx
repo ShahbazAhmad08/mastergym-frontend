@@ -39,8 +39,8 @@ function LoadingScreen({ onComplete }) {
             ></div>
           </div>
           <p className="loading-text">Loading...</p>
-          <p className="text-yellow-500 ">
-            developed and maintained by SAMEER ABBASI
+          <p className="text-yellow-500 mt-4 text-2xl">
+            Developed And Maintained by SAMEER ABBASI
           </p>
         </div>
       </div>
