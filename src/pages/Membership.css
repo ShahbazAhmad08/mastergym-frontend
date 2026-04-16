@@ -1,0 +1,349 @@
+.membership-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
+  padding: 120px 0 80px;
+  text-align: center;
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.membership-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 107, 0, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+.membership-content {
+  background: var(--bg-light);
+  padding: 80px 0;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.plan-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.plan-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.plan-card:hover::before {
+  transform: scaleX(1);
+}
+
+.plan-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.plan-card.highlighted {
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-accent);
+}
+
+.plan-card.highlighted::before {
+  transform: scaleX(1);
+}
+
+.plan-card.highlighted:hover {
+  transform: scale(1.05) translateY(-15px);
+  box-shadow: 0 20px 50px rgba(255, 107, 0, 0.4);
+}
+
+.plan-card.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 50px rgba(255, 107, 0, 0.3);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient);
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.plan-header h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price {
+  margin-bottom: 1.5rem;
+}
+
+.currency {
+  font-size: 1.5rem;
+  vertical-align: super;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.amount {
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.period {
+  font-size: 1rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.plan-description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.plan-features {
+  margin-bottom: 2.5rem;
+}
+
+.plan-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.plan-features li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+  font-size: 1rem;
+  transition: var(--transition-fast);
+}
+
+.plan-features li:hover {
+  color: var(--primary-color);
+  padding-left: 10px;
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+.plan-card .btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.05rem;
+}
+
+.membership-faq {
+  background: white;
+  padding: 80px 0;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.faq-item {
+  background: var(--bg-light);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-md);
+  border-left-width: 6px;
+}
+
+.faq-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.faq-item p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.membership-cta {
+  background: var(--bg-light);
+  padding: 80px 0;
+}
+
+.cta-box {
+  background: var(--gradient);
+  padding: 4rem 3rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 60px rgba(255, 107, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cta-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box .btn {
+  background: white;
+  color: var(--primary-color);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box .btn:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .membership-hero {
+    padding: 100px 0 60px;
+  }
+
+  .membership-content,
+  .membership-faq,
+  .membership-cta {
+    padding: 60px 0;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-card.highlighted {
+    transform: scale(1);
+  }
+
+  .plan-card.highlighted:hover {
+    transform: translateY(-15px);
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-box {
+    padding: 3rem 2rem;
+  }
+
+  .cta-box h2 {
+    font-size: 2rem;
+  }
+
+  .amount {
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,319 @@
+.trainers-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
+  padding: 120px 0 80px;
+  text-align: center;
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.trainers-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 30% 50%,
+      rgba(255, 107, 0, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 50%
+    );
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.trainers-content {
+  background: var(--bg-light);
+  padding: 80px 0;
+}
+
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.trainer-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.trainer-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.trainer-avatar {
+  background: var(--gradient);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.trainer-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.trainer-avatar::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.trainer-avatar span {
+  font-size: 6rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.trainer-card:hover .trainer-avatar span {
+  transform: scale(1.2);
+}
+
+.trainer-info {
+  padding: 2.5rem;
+}
+
+.trainer-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  font-weight: 800;
+}
+
+.trainer-role {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trainer-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  background: var(--bg-light);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+  transition: var(--transition-fast);
+  border: 1px solid #e0e0e0;
+}
+
+.detail-item:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.trainer-bio {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.trainers-cta {
+  background: white;
+  padding: 80px 0;
+}
+
+.cta-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 4rem 3rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 107, 0, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 215, 0, 0.15) 0%,
+      transparent 50%
+    );
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content .btn {
+  position: relative;
+  z-index: 1;
+}
+.certifications {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.cert-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cert-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.cert-title {
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certifications {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .cert-img {
+    height: 150px;
+  }
+
+  .cert-title {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-img {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .trainers-hero {
+    padding: 100px 0 60px;
+  }
+
+  .trainers-content,
+  .trainers-cta {
+    padding: 60px 0;
+  }
+
+  .trainers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trainer-avatar {
+    padding: 2rem;
+  }
+
+  .trainer-avatar span {
+    font-size: 4rem;
+  }
+
+  .cta-content {
+    padding: 3rem 2rem;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+}

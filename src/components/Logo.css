@@ -1,0 +1,89 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary-color);
+}
+
+.logo.small {
+  gap: 0.75rem;
+}
+
+.logo.medium {
+  gap: 1rem;
+}
+
+.logo.large {
+  gap: 1.5rem;
+  flex-direction: column;
+}
+
+.logo-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-svg {
+  width: 60px;
+  height: 60px;
+  transition: var(--transition);
+}
+
+.small .logo-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.large .logo-svg {
+  width: 100px;
+  height: 100px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logo-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.small .logo-title {
+  font-size: 1.3rem;
+}
+
+.large .logo-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.logo-tagline {
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+.small .logo-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+}
+
+.large .logo-tagline {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-align: center;
+}
