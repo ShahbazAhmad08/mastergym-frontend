@@ -555,3 +555,257 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Add these styles at end of Admin.css */
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+.admin {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.admin-main {
+  min-width: 0;
+  width: 100%;
+}
+.admin-content {
+  padding: clamp(1rem, 3vw, 3rem);
+}
+.stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.member-item {
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.member-item > div:first-child {
+  flex: 1;
+  min-width: 220px;
+}
+.member-actions,
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.member-actions button,
+.modal-actions button {
+  flex: 1;
+  min-width: 120px;
+}
+.modal {
+  margin: 1rem;
+}
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    width: 220px;
+  }
+  .admin-main {
+    margin-left: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 260px;
+    transform: translateX(-100%);
+  }
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+  .admin-header {
+    background: rgb(0, 0, 0);
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: white;
+  }
+  .admin-header h1 {
+    font-size: 1.8rem;
+    color: white;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-card {
+    padding: 1rem;
+  }
+  .member-item {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  .member-meta {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .modal {
+    width: calc(100% - 1rem);
+    max-height: 85vh;
+  }
+}
+@media (max-width: 480px) {
+  .admin-logo h2 {
+    font-size: 1.4rem;
+  }
+  .nav-item {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+  .stat-value {
+    font-size: 1.7rem;
+  }
+  .member-actions button,
+  .modal-actions button {
+    min-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 90;
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .admin-sidebar {
+    z-index: 100;
+  }
+}
+
+/* Add these styles at end of Admin.css */
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+.admin {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.admin-main {
+  min-width: 0;
+  width: 100%;
+}
+.admin-content {
+  padding: clamp(1rem, 3vw, 3rem);
+}
+.stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.member-item {
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.member-item > div:first-child {
+  flex: 1;
+  min-width: 220px;
+}
+.member-actions,
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.member-actions button,
+.modal-actions button {
+  flex: 1;
+  min-width: 120px;
+}
+.modal {
+  margin: 1rem;
+}
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    width: 220px;
+  }
+  .admin-main {
+    margin-left: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 260px;
+    transform: translateX(-100%);
+  }
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+  .admin-header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .admin-header h1 {
+    font-size: 1.4rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-card {
+    padding: 1rem;
+  }
+  .member-item {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  .member-meta {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .modal {
+    width: calc(100% - 1rem);
+    max-height: 85vh;
+  }
+}
+@media (max-width: 480px) {
+  .admin-logo h2 {
+    font-size: 1.4rem;
+  }
+  .nav-item {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+  .stat-value {
+    font-size: 1.7rem;
+  }
+  .member-actions button,
+  .modal-actions button {
+    min-width: 100%;
+    flex-basis: 100%;
+  }
+}

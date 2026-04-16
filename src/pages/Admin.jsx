@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Admin.css";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Admin() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [members, setMembers] = useState([]);
-  const [trainers, setTrainers] = useState([]);
+  // const [trainers, setTrainers] = useState([]);
   // const [search, setSearch] = useState("");
   const [stats, setStats] = useState({
     totalMembers: 0,
@@ -20,6 +20,7 @@ function Admin() {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -28,16 +29,16 @@ function Admin() {
   const fetchData = async () => {
     try {
       setPageLoading(true);
-      const [membersRes, trainersRes] = await Promise.all([
-        fetch(`${API_URL}/members`),
-        fetch(`${API_URL}/trainers`),
+      const [membersRes] = await Promise.all([
+        fetch(`${API_URL}/api/members`),
+        // fetch(`${API_URL}/trainers`),
       ]);
       const membersData = await membersRes.json();
-      const trainersData = await trainersRes.json();
+      // const trainersData = await trainersRes.json();
       const membersList = membersData.members || [];
-      const trainersList = trainersData.trainers || [];
+      // const trainersList = trainersData.trainers || [];
       setMembers(membersList);
-      setTrainers(trainersList);
+      // setTrainers(trainersList);
       const priceMap = { Basic: 29, Premium: 59, Elite: 99 };
       const revenue = membersList.reduce(
         (sum, m) => sum + (priceMap[m.membershipPlan] || 0),
@@ -46,7 +47,7 @@ function Admin() {
       setStats({
         totalMembers: membersList.length,
         activeMembers: membersList.filter((m) => m.status === "Active").length,
-        totalTrainers: trainersList.length,
+        // totalTrainers: trainersList.length,
         monthlyRevenue: revenue,
       });
     } catch (error) {
@@ -100,7 +101,7 @@ function Admin() {
       alert("Delete failed", error.message);
     }
   };
-  console.log("Members:", members);
+  // console.log("Members:", members);
   const handleReminder = (member) => {
     const phone = member.phone; // user number with country code
     const message = `Dear ${member.name}, your membership is expiring in 3 days. Please take subscription to continue the service.`;
@@ -128,7 +129,7 @@ function Admin() {
 
   return (
     <div className="admin">
-      <aside className="admin-sidebar">
+      <aside className={`admin-sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="admin-logo">
           <h2>MASTER GYM</h2>
           <p>Admin Panel</p>
@@ -136,13 +137,19 @@ function Admin() {
         <nav className="admin-nav">
           <button
             className={`nav-item ${activeTab === "dashboard" ? "active" : ""}`}
-            onClick={() => setActiveTab("dashboard")}
+            onClick={() => {
+              setActiveTab("dashboard");
+              setSidebarOpen(false);
+            }}
           >
             Dashboard
           </button>
           <button
             className={`nav-item ${activeTab === "members" ? "active" : ""}`}
-            onClick={() => setActiveTab("members")}
+            onClick={() => {
+              setActiveTab("members");
+              setSidebarOpen(false);
+            }}
           >
             Members
           </button>
@@ -157,7 +164,12 @@ function Admin() {
           ← Back to Website
         </Link> */}
       </aside>
-
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
       <main className="admin-main">
         <header className="admin-header">
           <h1>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h1>
@@ -167,6 +179,9 @@ function Admin() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           /> */}
+          <button className="menu-toggle" onClick={() => setSidebarOpen(true)}>
+            {sidebarOpen ? "✕" : "☰"}
+          </button>
         </header>
 
         {pageLoading ? (
@@ -210,7 +225,7 @@ function Admin() {
 
                 {members.map((member) => {
                   const expiryDate = new Date(member.expiryDate);
-                  console.log("Expiry Date:", expiryDate);
+                  // console.log("Expiry Date:", expiryDate);
                   const today = new Date();
 
                   const diffTime = expiryDate - today;
