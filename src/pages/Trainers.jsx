@@ -7,7 +7,7 @@ function Trainers() {
       role: "Group Fitness Instructor",
       specialty: "HIIT & Cardio",
       experience: "5+ years",
-      image: "./rehan.jpeg",
+      image: "./rehan1.jpeg",
       bio: "Energetic group fitness instructor known for motivating classes. Certified in multiple formats including HIIT, Zumba, and spinning.",
     },
   ];

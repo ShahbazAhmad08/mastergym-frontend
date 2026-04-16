@@ -105,9 +105,12 @@ function Footer() {
 
         <div className="footer-bottom">
           <p>&copy; 2026 Master Gym - The Fitness Hub. All Rights Reserved.</p>
-          <Link to="/admin" className="admin-link">
+          <p className="text-yellow-500 ">
+            developed and maintained by SAMEER ABBASI
+          </p>
+          {/* <Link to="/admin" className="admin-link">
             Admin Panel
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>
