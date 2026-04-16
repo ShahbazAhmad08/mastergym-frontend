@@ -28,7 +28,7 @@ function Home() {
               </div>
             </div>
             <div className="hero-image">
-              <img src="/src/pages/rehan.jpeg" alt="Rehan - Master Gym" />
+              <img src="./rehan.jpeg" alt="Rehan - Master Gym" />
             </div>
           </div>
         </div>
