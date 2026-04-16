@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +31,20 @@ function App() {
       <div className="app">
         <ScrollToTop />
         <Routes>
-          <Route path="/admin" element={<Admin />} />
+          {/* Login */}
+          <Route path="/login" element={<Login />} />
+
+          {/* <Route path="/admin" element={<Admin />} /> */}
+          {/* Protected Admin */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/*"
             element={
