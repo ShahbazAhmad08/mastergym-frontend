@@ -108,9 +108,9 @@ function Footer() {
           <p className="text-yellow-500 ">
             Developed And Maintained by SAMEER ABBASI
           </p>
-          {/* <Link to="/admin" className="admin-link">
+          <Link to="/admin" className="admin-link">
             Admin Panel
-          </Link> */}
+          </Link>
         </div>
       </div>
     </footer>

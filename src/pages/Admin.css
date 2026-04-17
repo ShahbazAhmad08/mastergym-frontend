@@ -514,6 +514,12 @@
 .remind-btn:hover {
   background: darkorange;
 }
+.modal-title {
+  padding: 10px;
+}
+.details-modal {
+  padding: 12px;
+}
 
 @media (max-width: 1024px) {
   .admin-sidebar {
