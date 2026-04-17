@@ -166,6 +166,7 @@ function Admin() {
       setMemberLoading(false);
     }
   };
+  const today = new Date();
 
   // const filteredMembers = members.filter((m) =>
   //   m.name?.toLowerCase().includes(search.toLowerCase()),
@@ -280,7 +281,6 @@ function Admin() {
                 {members.map((member) => {
                   const expiryDate = new Date(member.expiryDate);
                   // console.log("Expiry Date:", expiryDate);
-                  const today = new Date();
 
                   const diffTime = expiryDate - today;
                   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -291,7 +291,7 @@ function Admin() {
                     <div
                       key={member._id}
                       onClick={() => fetchMemberDetails(member._id)}
-                      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+                      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-5 cursor-pointer"
                     >
                       {/* Left Content */}
                       <div className="space-y-2">
@@ -368,6 +368,7 @@ function Admin() {
                             setRenewDate(
                               new Date().toISOString().split("T")[0],
                             );
+                            setRenewPlan(member.membershipPlan); // ✅ IMPORTANT FIX
                           }}
                         >
                           ♻ Renew
@@ -375,7 +376,10 @@ function Admin() {
 
                         <button
                           className="px-4 py-2 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
-                          onClick={() => handleDelete(member._id, "member")}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(member._id, "member");
+                          }}
                         >
                           🗑 Delete
                         </button>
@@ -538,7 +542,7 @@ function Admin() {
               <input value={renewMember.phone} disabled />
               <select
                 required
-                value={renewMember.membershipPlan}
+                value={reNewPlan || renewMember.membershipPlan}
                 onChange={(e) => setRenewPlan(e.target.value)}
               >
                 <option value="">Select Plan</option>
@@ -546,7 +550,7 @@ function Admin() {
                 <option>Premium</option>
                 <option>Elite</option>
               </select>
-              <input value={renewMember.membershipPlan} disabled />
+              {/* <input value={renewMember.membershipPlan} disabled /> */}
 
               <label>New Start Date</label>
               <input
