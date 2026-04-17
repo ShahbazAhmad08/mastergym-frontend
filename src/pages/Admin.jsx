@@ -27,6 +27,7 @@ function Admin() {
   const [renewDate, setRenewDate] = useState("");
   const [selectedMember, setSelectedMember] = useState(null);
   const [memberLoading, setMemberLoading] = useState(false);
+  const [reNewPlan, setRenewPlan] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -132,6 +133,7 @@ function Admin() {
           },
           body: JSON.stringify({
             startDate: renewDate,
+            membershipPlan: reNewPlan || renewMember.membershipPlan,
           }),
         },
       );
@@ -534,6 +536,16 @@ function Admin() {
               <input value={renewMember.name} disabled />
               <input value={renewMember.email} disabled />
               <input value={renewMember.phone} disabled />
+              <select
+                required
+                value={renewMember.membershipPlan}
+                onChange={(e) => setRenewPlan(e.target.value)}
+              >
+                <option value="">Select Plan</option>
+                <option>Basic</option>
+                <option>Premium</option>
+                <option>Elite</option>
+              </select>
               <input value={renewMember.membershipPlan} disabled />
 
               <label>New Start Date</label>
