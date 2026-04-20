@@ -5,91 +5,102 @@ const AddMemberForm = ({
   formData,
   setFormData,
   loading,
-  // setLoading,
   closeModal,
   handleSubmit,
 }) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="modal-overlay" onClick={closeModal}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal-title">Add {modalType}</h2>
+
         <form onSubmit={handleSubmit} className="modal-form">
           <input
             required
+            name="name"
             placeholder="Name"
             value={formData.name || ""}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={handleChange}
           />
+
           <input
             required
+            type="email"
+            name="email"
             placeholder="Email"
             value={formData.email || ""}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            onChange={handleChange}
           />
+
           <input
             required
+            name="phone"
             placeholder="Phone"
+            maxLength="10"
             value={formData.phone || ""}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
+            onChange={handleChange}
           />
+
           <input
             required
             type="date"
-            placeholder="Start Date"
+            name="startDate"
             value={formData.startDate || ""}
-            onChange={(e) =>
-              setFormData({ ...formData, startDate: e.target.value })
-            }
+            onChange={handleChange}
           />
+
           {modalType === "member" ? (
             <select
               required
+              name="membershipPlan"
               value={formData.membershipPlan || ""}
-              onChange={(e) =>
-                setFormData({ ...formData, membershipPlan: e.target.value })
-              }
+              onChange={handleChange}
             >
               <option value="">Select Plan</option>
-              <option>Basic</option>
-              <option>Premium</option>
-              <option>Elite</option>
+              <option value="Basic">Basic</option>
+              <option value="Premium">Premium</option>
+              <option value="Elite">Elite</option>
             </select>
           ) : (
             <>
               <input
                 required
+                name="specialty"
                 placeholder="Specialty"
                 value={formData.specialty || ""}
-                onChange={(e) =>
-                  setFormData({ ...formData, specialty: e.target.value })
-                }
+                onChange={handleChange}
               />
+
               <input
                 required
+                name="experience"
                 placeholder="Experience"
                 value={formData.experience || ""}
-                onChange={(e) =>
-                  setFormData({ ...formData, experience: e.target.value })
-                }
+                onChange={handleChange}
               />
+
               <textarea
                 required
+                name="bio"
                 placeholder="Bio"
                 value={formData.bio || ""}
-                onChange={(e) =>
-                  setFormData({ ...formData, bio: e.target.value })
-                }
+                onChange={handleChange}
               />
             </>
           )}
+
           <div className="modal-actions">
             <button type="button" onClick={closeModal}>
               Cancel
             </button>
+
             <button type="submit" disabled={loading}>
               {loading ? "Saving..." : "Save"}
             </button>
