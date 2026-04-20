@@ -283,7 +283,7 @@ function Admin() {
                   const diffTime = expiryDate - today;
                   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-                  // const showRemindBtn = diffDays <= 3 && diffDays >= 0;
+                  const showRemindBtn = diffDays <= 3 && diffDays >= 0;
 
                   return (
                     <div
@@ -346,19 +346,17 @@ function Admin() {
 
                       {/* Right Actions */}
                       <div className="flex flex-wrap gap-3">
-                        {/* {
-                        // showRemindBtn &&
-                         ( */}
-                        <button
-                          className="px-4 py-2 rounded-xl bg-yellow-400 text-white font-semibold hover:bg-yellow-500 transition"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleReminder(member);
-                          }}
-                        >
-                          🔔 Remind
-                        </button>
-                        {/* )} */}
+                        {showRemindBtn && (
+                          <button
+                            className="px-4 py-2 rounded-xl bg-yellow-400 text-white font-semibold hover:bg-yellow-500 transition"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleReminder(member);
+                            }}
+                          >
+                            🔔 Remind
+                          </button>
+                        )}
 
                         <button
                           className="px-4 py-2 rounded-xl bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
