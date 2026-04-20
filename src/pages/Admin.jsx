@@ -94,7 +94,7 @@ function Admin() {
     }
   };
 
-  const handleDelete = async (id, type) => {
+  const handleDelete = async (id) => {
     if (!window.confirm("Are you sure?")) return;
     try {
       const res = await fetch(`${API_URL}/api/members/${id}`, {
@@ -283,7 +283,7 @@ function Admin() {
                   const diffTime = expiryDate - today;
                   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-                  const showRemindBtn = diffDays <= 3 && diffDays >= 0;
+                  // const showRemindBtn = diffDays <= 3 && diffDays >= 0;
 
                   return (
                     <div
