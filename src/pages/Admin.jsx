@@ -46,7 +46,7 @@ function Admin() {
       // const trainersList = trainersData.trainers || [];
       setMembers(membersList);
       // setTrainers(trainersList);
-      const priceMap = { Basic: 29, Premium: 59, Elite: 99 };
+      const priceMap = { Basic: 700, Premium: 1500, Elite: 2500 };
       const revenue = membersList.reduce(
         (sum, m) => sum + (priceMap[m.membershipPlan] || 0),
         0,
@@ -176,7 +176,11 @@ function Admin() {
   const displayStats = [
     { label: "Total Members", value: stats.totalMembers, icon: "👥" },
     { label: "Active Members", value: stats.activeMembers, icon: "💪" },
-    { label: "Monthly Revenue", value: `$${stats.monthlyRevenue}`, icon: "💰" },
+    {
+      label: "Monthly Revenue",
+      value: `&#8377; ${stats.monthlyRevenue}`,
+      icon: "💰",
+    },
     { label: "Trainers", value: stats.totalTrainers, icon: "👨‍🏫" },
   ];
 
@@ -243,12 +247,21 @@ function Admin() {
           <div className="admin-content">
             {activeTab === "dashboard" && (
               <>
-                <div className="stats-grid">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {displayStats.map((item, i) => (
-                    <div className="stat-card" key={i}>
-                      <span>{item.icon}</span>
-                      <h3>{item.label}</h3>
-                      <p>{item.value}</p>
+                    <div
+                      key={i}
+                      className="bg-white rounded-xl shadow-md p-5 border border-gray-200"
+                    >
+                      <span className="text-2xl">{item.icon}</span>
+
+                      <h3 className="text-sm text-gray-500 mt-2">
+                        {item.label}
+                      </h3>
+
+                      <p className="text-2xl font-bold text-gray-900 mt-1">
+                        {item.value}
+                      </p>
                     </div>
                   ))}
                 </div>
