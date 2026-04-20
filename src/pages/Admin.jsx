@@ -97,8 +97,7 @@ function Admin() {
   const handleDelete = async (id, type) => {
     if (!window.confirm("Are you sure?")) return;
     try {
-      const endpoint = type === "member" ? "/members" : "/trainers";
-      const res = await fetch(`${API_URL}${endpoint}/${id}`, {
+      const res = await fetch(`${API_URL}/api/members/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed");
@@ -347,17 +346,19 @@ function Admin() {
 
                       {/* Right Actions */}
                       <div className="flex flex-wrap gap-3">
-                        {showRemindBtn && (
-                          <button
-                            className="px-4 py-2 rounded-xl bg-yellow-400 text-white font-semibold hover:bg-yellow-500 transition"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleReminder(member);
-                            }}
-                          >
-                            🔔 Remind
-                          </button>
-                        )}
+                        {/* {
+                        // showRemindBtn &&
+                         ( */}
+                        <button
+                          className="px-4 py-2 rounded-xl bg-yellow-400 text-white font-semibold hover:bg-yellow-500 transition"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleReminder(member);
+                          }}
+                        >
+                          🔔 Remind
+                        </button>
+                        {/* )} */}
 
                         <button
                           className="px-4 py-2 rounded-xl bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
