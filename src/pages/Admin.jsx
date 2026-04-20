@@ -178,7 +178,7 @@ function Admin() {
     { label: "Active Members", value: stats.activeMembers, icon: "💪" },
     {
       label: "Monthly Revenue",
-      value: `&#8377; ${stats.monthlyRevenue}`,
+      value: stats.monthlyRevenue ? `₹${stats.monthlyRevenue}` : "₹0",
       icon: "💰",
     },
     { label: "Trainers", value: stats.totalTrainers, icon: "👨‍🏫" },
