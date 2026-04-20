@@ -5,7 +5,7 @@ const AddMemberForm = ({
   formData,
   setFormData,
   loading,
-  setLoading,
+  // setLoading,
   closeModal,
   handleSubmit,
 }) => {

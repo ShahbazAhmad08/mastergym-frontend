@@ -78,8 +78,7 @@ function Admin() {
     e.preventDefault();
     setLoading(true);
     try {
-      const endpoint = modalType === "member" ? "/members" : "/trainers";
-      const res = await fetch(`${API_URL}${endpoint}`, {
+      const res = await fetch(`${API_URL}/api/members`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
