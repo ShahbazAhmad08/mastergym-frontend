@@ -181,7 +181,11 @@ function Admin() {
       value: stats.monthlyRevenue ? `₹${stats.monthlyRevenue}` : "₹0",
       icon: "💰",
     },
-    { label: "Trainers", value: stats.totalTrainers, icon: "👨‍🏫" },
+    {
+      label: "Trainers",
+      value: stats.totalTrainers ? stats.totalTrainers : 1,
+      icon: "👨‍🏫",
+    },
   ];
 
   return (
